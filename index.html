@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Digital Interactiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(to bottom, #fff8e1, #ffe0b2);
+      color: #3e2723;
+      overflow-x: hidden;
+    }
+
+.decorative-img {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+
+    header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #fbc02d, #f57c00);
+    padding: 30px 20px;
+    border-radius: 0 0 40px 40px;
+    animation: pop 1s ease-out;
+    text-align: center;
+  }
+
+  .header-content {
+    flex: 1;
+    min-width: 250px;
+    max-width: 600px;
+  }
+
+  .header-content h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px #ffcc80;
+    margin: 0 0 10px;
+  }
+
+  .header-content p {
+    color: white;
+    margin: 5px 0;
+    font-size: 1.2rem;
+  }
+
+  .header-img img {
+    width: 90px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .header-img img:hover {
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  .header-img.left {
+    order: -1;
+  }
+
+    section {
+      background: #ffffffdd;
+      margin: 30px auto;
+      border-radius: 25px;
+      padding: 30px;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease;
+      transition: transform 0.3s;
+    }
+
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    h2 {
+      color: #ff5722;
+      font-size: 2rem;
+      border-bottom: 3px dotted #ff9800;
+      padding-bottom: 5px;
+    }
+
+    p, li {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .category-box {
+      background: #ffecb3;
+      border-left: 8px solid #ffb300;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .category-box:hover {
+      background-color: #ffe082;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+
+    th, td {
+      border: 1px solid #d7ccc8;
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #ffe082;
+      color: #5d4037;
+    }
+
+    tr:hover {
+      background-color: #fff8e1;
+    }
+
+    a {
+      color: #0288d1;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+    width: 120px;
+    height: auto;
+    margin-right: 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    vertical-align: middle;
+  }
+
+  img:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: brightness(1.1);
+  }
+
+ .button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fdd835;
+  border: 2px solid #fbc02d;
+  border-radius: 12px;
+  padding: 4px 10px; 
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #5d4037;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #fff176;
+  transform: scale(1.05);
+}
+
+footer {
+  background: linear-gradient(to right, #ffcc80, #ffb74d);
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #5d4037;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease;
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 0;
+  font-weight: bold;
+  text-shadow: 1px 1px #ffe0b2;
+}
+
+
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-img left">
+    <img src="./assets/padep.jpg" alt="padep">
+  </div>
+  <div class="header-content">
+    <h1>Guía Digital Interactiva</h1>
+    <p><strong>Autor:</strong> Luisa Marleny Fuentes Velázquez</p>
+    <p><strong>Nivel educativo:</strong> Preprimaria - Ciclo 2 (5-6 años)</p>
+    <p><strong>Fecha:</strong> Julio 2025</p>
+  </div>
+  <div class="header-img right">
+    <img src="./assets/usac.jpg" alt="usac">
+  </div>
+</header>
+  <section>
+    <h2>Introducción</h2>
+    <p>Esta guía digital fue creada con el objetivo de enriquecer el aprendizaje de niños y niñas en etapa preescolar mediante el uso de herramientas digitales innovadoras, divertidas y accesibles. Cada recurso está pensado para potenciar la creatividad, participación y comprensión de los más pequeños.</p>
+  </section>
+
+  <section>
+    <h2>Categorías de Herramientas Digitales</h2>
+    <div class="category-box">1. Gamificación</div>
+    <div class="category-box">2. Creación de Blogs</div>
+    <div class="category-box">3. Inclusión</div>
+    <div class="category-box">4. Animación y Videos</div>
+    <div class="category-box">5. Presentaciones</div>
+    <div class="category-box">6. Editores de Video</div>
+    <div class="category-box">7. Editores de Imagen</div>
+    <div class="category-box">8. Editores de Audio</div>
+    <div class="category-box">9. Pizarras Digitales</div>
+    <div class="category-box">10. Contenido Educativo</div>
+    <div class="category-box">11. Evaluación Automatizada</div>
+    <div class="category-box">12. Matemáticas</div>
+    <div class="category-box">13. Comunicación y Lenguaje</div>
+    <div class="category-box">14. Realidad Aumentada</div>
+    <div class="category-box">15. Realidad Virtual</div>
+  </section>
+
+  <section>
+    <h2>Herramientas Digitales</h2>
+  </section>
+
+
+  <section>
+    <h2> Kahoot!</h2>
+    <table>
+      <tr>
+        <th>Nombre del recurso</th>
+        <td>Kahoot!</td>
+      </tr>
+      <tr>
+        <th>Código QR y logo</th>
+        <td><em><img src="https://crystalpng.com/wp-content/uploads/2023/05/Kahoot-Logo-png.png" alt="kahoot"></em><img src="./assets/qrcode_kahoot.com.png" alt="qr"></td>
+      </tr>
+      <tr>
+        <th>Descripción detallada</th>
+        <td>Kahoot! es una herramienta digital que convierte el aprendizaje en un juego de preguntas en tiempo real. Los usuarios se conectan con un código desde sus dispositivos y compiten respondiendo cuestionarios creados por el moderador. Es divertida, fácil de usar y sirve tanto para educar como para entretener.
+</td>
+      </tr>
+      <tr>
+        <th>Actividades sugeridas</th>
+        <td>
+          <ul>
+            <li>Reconocimiento de Colores y Formas</li>
+            <li>Animales y sonidos</li>
+            <li>Números y conteo</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Ventajas</th>
+        <td>
+          <ul>
+            <li>Aprendizaje Activo</li>
+            <li>Interactividad y diversión</li>
+            <li>Facilidad de uso</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Limitaciones</th>
+        <td>
+          <ul>
+            <li>Dependencia de internet</li>
+            <li>Restricciones de la versión gratuita</li>
+            <li>Compatibilidad con dispositivos</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Link del recurso</th>
+        <td>
+        <a class="button" href="https://kahoot.it/" target="_blank">
+          Haz clic aquí para ir a Kahoot!
+        </a>
+      </td>
+      </tr>
+      <tr>
+        <th>Link del video tutorial</th>
+        <td><a class="button" href="https://www.youtube.com/watch?v=hxqcO0ihtkA" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+      </tr>
+      <tr>
+        <th>Instrucciones de aplicación</th>
+        <td>
+          <ol>
+            <li>Ingresa a kahoot y crea una cuenta o inicia sesión.</li>
+            <li>Haz clic en el botón “Crear” y selecciona el tipo de actividad.</li>
+            <li>Añade tus preguntas, respuestas, imágenes o videos. Marca la opción correcta.</li>
+            <li>Configura el tiempo de respuesta, puntos y diseño.</li>
+            <li>Guarda tu Kahoot y elige si lo usarás en vivo o lo asignarás como tarea</li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+  <h2>Momento de Aplicación en la Clase</h2>
+    <li>Inicio
+        <p>Al inicio, sirve como “activador de conocimientos previos” con preguntas motivadoras.Al cierre, permite evaluar aprendizajes de forma lúdica, fomentando el repaso y la retroalimentación inmediata.</p>
+    </li>
+    <li>Cierre
+        <p>Al cierre, permite evaluar aprendizajes de forma lúdica, fomentando el repaso y la retroalimentación inmediata.</p>
+    </li>
+
+</section>
+
+<section>
+  <h2>Instrucciones de Aplicación en el Aula</h2>
+  <ol>
+            <li>Contar con un dispositivo con acceso a internet.</li>
+            <li>Iniciar sesión.</li>
+            <li>Haz clic en el botón “Crear” y selecciona el tipo de actividad.</li>
+            <li>Añade tus preguntas, respuestas, imágenes o videos. Marca la opción correcta.</li>
+            <li>Configura el tiempo de respuesta, puntos y diseño.</li>
+            <li>Guarda tu Kahoot y elige si lo usarás en vivo o lo asignarás como tarea</li>
+</section>
+
+<section>
+  <h2> Referencias Bibliográficas</h2>
+  <ul>
+  <li><strong>Kahoot!</strong><br>
+Machaca-Huamanhorcco, E. (2022). Aplicación de Kahoot como herramienta educativa para la enseñanza. <em>Educación, 31</em>(61). <a href="http://www.scielo.org.pe/scielo.php?script=sci_arttext&pid=S1019-94032022000200116" target="_blank">http://www.scielo.org.pe/scielo.php?script=sci_arttext&pid=S1019-94032022000200116</a>
+</li>
+
+  </ul>
+</section>
+
+    <section>
+    <h2> Edublogs</h2>
+    <table>
+      <tr>
+        <th>Nombre del recurso</th>
+        <td>Edublogs</td>
+      </tr>
+      <tr>
+        <th>Código QR y logo</th>
+        <td><em><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_XDoaQAV8gBH8L71Hqf7nr2688YxFzU_YVQ&s" alt="edublogs"></em><img src="./assets/qrcode_edublogs.org.png" alt="qr"></td>
+      </tr>
+      <tr>
+        <th>Descripción detallada</th>
+        <td>Edublogs es una plataforma de blogs diseñada específicamente para el ámbito educativo, que permite a docentes, estudiantes e instituciones crear y gestionar blogs con fines pedagógicos. Su objetivo principal es fomentar el aprendizaje colaborativo, la reflexión académica y la comunicación entre miembros de la comunidad educativa.
+
+</td>
+      </tr>
+      <tr>
+        <th>Actividades sugeridas</th>
+        <td>
+          <ul>
+            <li>Mi primer dibujo digital</li>
+            <li>Historias con imágenes</li>
+            <li>Reconociendo colores y formas</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Ventajas</th>
+        <td>
+          <ul>
+            <li>Fomentan el aprendizaje colaborativo</li>
+            <li>Desarrollan habilidades digitales</li>
+            <li>Estimulan la creatividad</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Limitaciones</th>
+        <td>
+          <ul>
+            <li>Dependencia de internet</li>
+            <li>Capacidad de almacenamiento</li>
+            <li>Diseño limitado</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Link del recurso</th>
+        <td>
+        <a class="button" href="https://edublogs.org/" target="_blank">
+          Haz clic aquí para ir a Edublogs
+        </a>
+      </td>
+      </tr>
+      <tr>
+        <th>Link del video tutorial</th>
+        <td><a class="button" href="https://www.youtube.com/watch?v=MkTFMUuLJNo" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+      </tr>
+      <tr>
+        <th>Instrucciones de aplicación</th>
+        <td>
+          <ol>
+            <li>Ingresa a edublogs y crea una cuenta o inicia sesión.</li>
+            <li>Elige un nombre de usuario y dirección para tu blog, por ejemplo: mi-clase.edublogs.org.</li>
+            <li>Accede al panel de control (Dashboard) para gestionar tu contenido.</li>
+            <li>Publica tu primera entrada desde la sección “Posts > Add New”.</li>
+            <li>Crea páginas fijas como “Acerca de” o “Contacto” desde “Pages > Add New”</li>
+            <li>Personaliza el diseño de tu blog desde “Appearance > Customize”</li>
+            <li>Comparte el enlace de tu blog con tus estudiantes y familias.</li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+  <h2>Momento de Aplicación en la Clase</h2>
+    <li>Desarrollo
+        <p>Ideal para documentar procesos, reflexionar durante el aprendizaje, publicar tareas o mantener un portafolio digital activo.</p>
+    </li>
+
+</section>
+
+<section>
+  <h2>Instrucciones de Aplicación en el Aula</h2>
+  <ol>
+            <li>Contar con un dispositivo con acceso a internet.</li>
+            <li>Iniciar sesión.</li>
+            <li>Elige un nombre de usuario y dirección para tu blog, por ejemplo: mi-clase.edublogs.org.</li>
+            <li>Accede al panel de control (Dashboard) para gestionar tu contenido.</li>
+            <li>Publica tu primera entrada desde la sección “Posts > Add New”.</li>
+            <li>Crea páginas fijas como “Acerca de” o “Contacto” desde “Pages > Add New”</li>
+            <li>Personaliza el diseño de tu blog desde “Appearance > Customize”</li>
+            <li>Comparte el enlace de tu blog con tus estudiantes y familias.</li>
+</section>
+
+<section>
+  <h2> Referencias Bibliográficas</h2>
+  <ul>
+<li><strong>Edublogs</strong><br>
+Edublogs. (s.f.). <em>Getting Started with Edublogs</em>. 
+<a href="https://help.edublogs.org/getting-started-with-edublogs/" target="_blank">https://help.edublogs.org/getting-started-with-edublogs/</a>
+</li>
+
+  </ul>
+</section>
+
+    <section>
+    <h2>Genially</h2>
+    <table>
+      <tr>
+        <th>Nombre del recurso</th>
+        <td>Genially</td>
+      </tr>
+      <tr>
+        <th>Código QR y logo</th>
+        <td><em><img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Genially_%282023%29_logotipo.png" alt="genially"><img src="./assets/qrcode_genially.com.png" alt="qr"></em></td>
+      </tr>
+      <tr>
+        <th>Descripción detallada</th>
+        <td>Genially es una plataforma en línea que permite crear contenido visual e interactivo de forma sencilla y atractiva. Su principal objetivo es transformar materiales estáticos en experiencias dinámicas, ideales para educación, marketing, formación corporativa y comunicación digital.</td>
+      </tr>
+      <tr>
+        <th>Actividades sugeridas</th>
+        <td>
+          <ul>
+            <li>Identificación de emociones</li>
+            <li>Historias interactivas</li>
+            <li>Galería de arte infantil</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Ventajas</th>
+        <td>
+          <ul>
+            <li>Facilidad de uso</li>
+            <li>Variedad de plantillas</li>
+            <li>Interactividad</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Limitaciones</th>
+        <td>
+          <ul>
+            <li>Rendimiento en dispositivos antiguos</li>
+            <li>Requiere conexión a internet</li>
+            <li>Diseño limitado</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Link del recurso</th>
+       <td>
+        <a class="button" href="https://edublogs.org/" target="_blank">
+          Haz clic aquí para ir a Genially
+        </a>
+      </td>
+      </tr>
+      <tr>
+        <th>Link del video tutorial</th>
+         <td><a class="button" href="https://www.youtube.com/watch?v=ffzVQYsVGUY" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+      </tr>
+      <tr>
+        <th>Instrucciones de aplicación</th>
+        <td>
+          <ol>
+            <li>Crear una cuenta en Genially con tu correo de Google</li>
+            <li>Accede al panel de creación y elige una plantilla o lienzo en blanco según el tipo de contenido que deseas (presentación, juego, infografía, etc.).</li>
+            <li>Personaliza tu diseño.</li>
+            <li>Añade interactividad.</li>
+            <li>Agrega animaciones.</li>
+            <li>Inserta contenido externo.</li>
+            <li>Publica y comparte tu Genially mediante enlace o código QR.</li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+    <section>
+  <h2>Momento de Aplicación en la Clase</h2>
+    <li>Desarrollo o cierre
+        <p>En el desarrollo, se usa para presentar contenidos de forma visual e interactiva, favoreciendo la atención y la comprensión.</p>
+        <p>En el cierre, se puede utilizar como herramienta de gamificación o exposición creativa de proyectos realizados.</p>
+    </li>
+
+</section>
+
+<section>
+  <h2>Instrucciones de Aplicación en el Aula</h2>
+  <ol>
+            <li>Contar con un dispositivo con acceso a internet.</li>
+            <li>Iniciar sesión.</li>
+            <li>Elige un nombre de usuario y dirección para tu blog, por ejemplo: mi-clase.edublogs.org.</li>
+            <li>Accede al panel de control (Dashboard) para gestionar tu contenido.</li>
+            <li>Publica tu primera entrada desde la sección “Posts > Add New”.</li>
+            <li>Crea páginas fijas como “Acerca de” o “Contacto” desde “Pages > Add New”</li>
+            <li>Personaliza el diseño de tu blog desde “Appearance > Customize”</li>
+            <li>Comparte el enlace de tu blog con tus estudiantes y familias.</li>
+</section>
+
+<section>
+  <h2> Referencias Bibliográficas</h2>
+  <ul>
+
+   <li><strong>Genially – Buenas prácticas docentes</strong><br>
+    Digital U. (2024, 24 octubre). <em>Genially: Revoluciona tus clases con la creatividad digital</em>. 
+    <a href="https://docenciabuenaspracticas.uc3m.es/2024/10/24/genially-revoluciona-tus-clases-con-la-creatividad-digital/" target="_blank">https://docenciabuenaspracticas.uc3m.es/2024/10/24/genially-revoluciona-tus-clases-con-la-creatividad-digital/</a>
+  </li>
+
+
+  </ul>
+</section>
+
+    <section>
+    <h2>Educaplay</h2>
+    <table>
+      <tr>
+        <th>Nombre del recurso</th>
+        <td>Educaplay</td>
+      </tr>
+      <tr>
+        <th>Código QR y logo</th>
+        <td><em><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ43exaZAgOBc9yP-ostO14UQpDXXwW9c8YnA&s" alt="Educaplay"><img src="./assets/qrcode_es.educaplay.com.png" alt="qr"></em></td>
+      </tr>
+      <tr>
+        <th>Descripción detallada</th>
+        <td>Educaplay es una plataforma digital que permite crear actividades educativas multimedia de forma sencilla, atractiva e interactiva. Está pensada para docentes, estudiantes y profesionales de la educación que buscan dinamizar el aprendizaje mediante juegos y recursos visuales.</td>
+      </tr>
+      <tr>
+        <th>Actividades sugeridas</th>
+        <td>
+          <ul>
+            <li>Sopa de letras sencilla</li>
+            <li>Adivinanzas con imágenes</li>
+            <li>Relacionar columnas</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Ventajas</th>
+        <td>
+          <ul>
+            <li>Interactividad</li>
+            <li>Facilidad de uso</li>
+            <li>- Accesibilidad multiplataforma</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Limitaciones</th>
+        <td>
+          <ul>
+            <li>Descarga limitada</li>
+            <li>Requiere conexión a internet</li>
+            <li>Rendimiento variable</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Link del recurso</th>
+        <td>
+        <a class="button" href="https://es.educaplay.com/" target="_blank">
+          Haz clic aquí para ir a Educaplay
+        </a>
+      </td>
+      </tr>
+      <tr>
+        <th>Link del video tutorial</th>
+        <td><a class="button" href="https://www.youtube.com/watch?v=ZRkZ9-DPaj0" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+      </tr>
+      <tr>
+        <th>Instrucciones de aplicación</th>
+        <td>
+          <ol>
+            <li>Crear una cuenta gratuita en educaplay</li>
+            <li>Una vez dentro, selecciona “Crear actividad” y elige el tipo que deseas (sopa de letras, crucigrama, adivinanza, etc.).</li>
+            <li>Completa los datos básicos: título, idioma, curso, asignatura y área de conocimiento.</li>
+            <li>Configura la actividad</li>
+            <li>Publica y comparte mediante enlace o QR</li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+      <section>
+  <h2>Momento de Aplicación en la Clase</h2>
+    <li>Desarrollo
+        <p>Permite reforzar conceptos a través de actividades interactivas como crucigramas, sopas de letras o adivinanzas.</p>
+        <p>Estimula la participación mientras se trabaja el contenido, fortaleciendo competencias básicas.</p>
+    </li>
+
+</section>
+
+<section>
+  <h2>Instrucciones de Aplicación en el Aula</h2>
+  <ol>
+            <li>Contar con un dispositivo con acceso a internet.</li>
+            <li>Iniciar sesión.</li>
+            li>Una vez dentro, selecciona “Crear actividad” y elige el tipo que deseas (sopa de letras, crucigrama, adivinanza, etc.).</li>
+            <li>Completa los datos básicos: título, idioma, curso, asignatura y área de conocimiento.</li>
+            <li>Configura la actividad</li>
+            <li>Publica y comparte mediante enlace o QR</li>
+</section>
+
+<section>
+  <h2> Referencias Bibliográficas</h2>
+  <ul>
+
+     <li><strong>Educaplay – Artículo académico</strong><br>
+    Jurado Enríquez, E. L. (2022). <em>Educaplay. Un recurso educativo de valor para favorecer el aprendizaje en la Educación Superior</em>. Revista Cubana de Educación Superior, 41(2). 
+    <a href="http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S0257-43142022000200012" target="_blank">http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S0257-43142022000200012</a>
+  </li>
+  </ul>
+</section>
+
+    <section>
+    <h2>Voki</h2>
+    <table>
+      <tr>
+        <th>Nombre del recurso</th>
+        <td>Voki</td>
+      </tr>
+      <tr>
+        <th>Código QR y logo</th>
+        <td><em><img src="https://images.sftcdn.net/images/t_app-icon-m/p/ea47692c-d34c-463e-ab82-c7f8ae42129e/3583457526/voki-for-education-logo" alt="Voki"><img src="./assets/qrcode_l-www.voki.com.png" alt=""></em></td>
+      </tr>
+      <tr>
+        <th>Descripción detallada</th>
+        <td>Voki es una herramienta en línea que permite a los usuarios crear avatares animados que hablan. Es especialmente útil en el ámbito educativo, ya que facilita la creación de presentaciones interactivas y atractivas para estudiantes.</td>
+      </tr>
+      <tr>
+        <th>Actividades sugeridas</th>
+        <td>
+          <ul>
+            <li>Presentación del personaje</li>
+            <li>Cuentos hablados</li>
+            <li>Aprendiendo las vocales</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Ventajas</th>
+        <td>
+          <ul>
+            <li>Potencia la creatividad</li>
+            <li>Desarrolla competencias lingüísticas</li>
+            <li>Presentación multisensorial</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Limitaciones</th>
+        <td>
+          <ul>
+            <li>Requiere conexión a internet</li>
+            <li>Compatibilidad limitada</li>
+            <li>Duración de grabación restringida</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Link del recurso</th>
+       <td>
+        <a class="button" href="https://l-www.voki.com/" target="_blank">
+          Haz clic aquí para ir a Voki
+        </a>
+      </td>
+      </tr>
+      <tr>
+        <th>Link del video tutorial</th>
+        <td><a class="button" href="https://www.youtube.com/watch?v=Nu9MaQM3FYE" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+      </tr>
+      <tr>
+        <th>Instrucciones de aplicación</th>
+        <td>
+          <ol>
+            <li>Crear una cuenta gratuita en Voki</li>
+            <li>Personaliza tu personaje</li>
+            <li>Agrega voz al avatar</li>
+            <li>Guarda y publica</li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+        <section>
+  <h2>Momento de Aplicación en la Clase</h2>
+    <li>Inicio
+        <p>Perfecto para iniciar la clase con un personaje animado que dé la bienvenida, presente el tema o formule una pregunta curiosa.</p>
+        <p>Crea un ambiente cálido, empático y participativo desde el inicio, ideal para niños de preprimaria.</p>
+    </li>
+
+</section>
+
+<section>
+  <h2>Instrucciones de Aplicación en el Aula</h2>
+  <ol>
+            <li>Contar con un dispositivo con acceso a internet.</li>
+            <li>Iniciar sesión.</li>
+            <li>Personaliza tu personaje</li>
+            <li>Agrega voz al avatar</li>
+            <li>Guarda y publica</li>
+</section>
+
+<section>
+  <h2> Referencias Bibliográficas</h2>
+  <ul>
+
+ <li><strong>Voki – Sitio oficial</strong><br>
+    Voki. (s.f.). <em>Create speaking avatars</em>. 
+    <a href="https://www.voki.com" target="_blank">https://www.voki.com</a>
+  </li>
+  </ul>
+</section>
+
+
+<section>
+  <h2>Canva</h2>
+  <table>
+    <tr>
+      <th>Nombre del recurso</th>
+      <td>Canva</td>
+    </tr>
+    <tr>
+      <th>Código QR y logo</th>
+      <td><em><img src="https://i0.wp.com/www.cristic.com/wp-content/uploads/2023/05/cristic-herramientas-tic-educativas-creacion-edicion-contenidos-profesores-canva.png?fit=300%2C300&ssl=1" alt="Canva"><img src="./assets/qrcode_www.canva.com.png" alt=""></em></td>
+    </tr>
+    <tr>
+      <th>Descripción detallada</th>
+      <td>Canva es una plataforma de diseño gráfico en línea que permite a cualquier persona sin necesidad de experiencia previa crear diseños visuales profesionales. Fue fundada en 2013 en Australia con la misión de democratizar el diseño.
+      </td>
+    </tr>
+    <tr>
+      <th>Actividades sugeridas</th>
+      <td>
+        <ul>
+          <li>Cuadernos de actividades</li>
+          <li>Tarjetas de vocabulario</li>
+          <li>Juegos de memoria</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Ventajas</th>
+      <td>
+        <ul>
+          <li>Facilidad de uso</li>
+          <li>Gran variedad de plantillas</li>
+          <li>Accesibilidad multiplataforma</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Limitaciones</th>
+      <td>
+        <ul>
+          <li>Requiere conexión a internet</li>
+          <li>Compatibilidad limitada</li>
+          <li>Duración de grabación restringida</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Link del recurso</th>
+     <td>
+      <a class="button" href="https://www.canva.com/es_419/" target="_blank">
+        Haz clic aquí para ir a Canva
+      </a>
+    </td>
+    </tr>
+    <tr>
+      <th>Link del video tutorial</th>
+      <td><a class="button" href="https://www.youtube.com/watch?v=kdE6ZmT_5MI" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+    </tr>
+    <tr>
+      <th>Instrucciones de aplicación</th>
+      <td>
+        <ol>
+          <li>Crear una Cuenta</li>
+          <li>Explorar la plataforma</li>
+          <li>Crear un diseño</li>
+          <li>Personalizar tu diseño</li>
+          <li>Guardar y exportar</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</section>
+
+      <section>
+<h2>Momento de Aplicación en la Clase</h2>
+  <li>Inicio
+      <p>Diseña una ruleta interactiva para repasar conocimientos previos o elegir temas</p>
+  </li>
+  <li>
+    Desarrollo
+    <p>Crea infografías, mapas conceptuales o historietas para explicar contenidos.
+    </p>
+  </li>
+  <li>
+    Cierre
+    <p>Diseña una plantilla para que los alumnos resuman lo aprendido o creen un póster final.
+    </p>
+  </li>
+
+</section>
+
+<section>
+<h2>Instrucciones de Aplicación en el Aula</h2>
+<ol>
+          <li>Contar con un dispositivo con acceso a internet.</li>
+          <li>Iniciar sesión.</li>
+          <li>Creación del recurso en Canva</li>
+          <li>Compartir y retroalimentar</li>
+</section>
+
+<section>
+<h2> Referencias Bibliográficas</h2>
+<ul>
+
+  <li><strong>Canva – Plataforma educativa</strong><br>
+    Canva. (s.f.). <em>Canva para educación</em>. 
+    <a href="https://www.canva.com/education/" target="_blank">https://www.canva.com/education/</a>
+  </li>
+</ul>
+
+<section>
+  <h2>Google Form</h2>
+  <table>
+    <tr>
+      <th>Nombre del recurso</th>
+      <td>Google Forms</td>
+    </tr>
+    <tr>
+      <th>Código QR y logo</th>
+      <td><em><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Google_Forms_2020_Logo.svg/500px-Google_Forms_2020_Logo.svg.png" alt="Google"><img src="./assets/qrcode_workspace.google.com.png" alt=""></em></td>
+    </tr>
+    <tr>
+      <th>Descripción detallada</th>
+      <td>Google Forms (Formularios de Google) es una aplicación web que permite crear formularios, encuestas, cuestionarios y registros en línea de forma rápida y sencilla. Forma parte del conjunto de herramientas de Google Workspace y está integrada con otras apps como Google Drive y Google Sheets.
+      </td>
+    </tr>
+    <tr>
+      <th>Actividades sugeridas</th>
+      <td>
+        <ul>
+          <li>Cuestionarios interactivos</li>
+          <li>Clasificación de objetos</li>
+          <li>Laberintos simples</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Ventajas</th>
+      <td>
+        <ul>
+          <li>Gratuito y sin límites</li>
+          <li>Interfaz sencilla e intuitiva</li>
+          <li>Colaboración en tiempo real</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Limitaciones</th>
+      <td>
+        <ul>
+          <li>Diseño visual limitado</li>
+          <li>Lógica condicional básica</li>
+          <li>Sin modo sin conexión</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Link del recurso</th>
+     <td>
+      <a class="button" href="https://workspace.google.com/products/forms/" target="_blank">
+        Haz clic aquí para ir a Google Forms
+      </a>
+    </td>
+    </tr>
+    <tr>
+      <th>Link del video tutorial</th>
+      <td><a class="button" href="https://m.youtube.com/watch?v=73_QStDnL0g&t=322s" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+    </tr>
+    <tr>
+      <th>Instrucciones de aplicación</th>
+      <td>
+        <ol>
+          <li>Acceder a google forms</li>
+          <li>Configurar el Formulario</li>
+          <li>Agregar Preguntas</li>
+          <li>Organizar el Formulario</li>
+          <li>Comparte el Formulario</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</section>
+
+      <section>
+<h2>Momento de Aplicación en la Clase</h2>
+  <li>Inicio
+      <p>Encuestas rápidas, preguntas de repaso, registro de emociones o asistencia.</p>
+  </li>
+  <li>
+    Desarrollo
+    <p>Cuestionarios interactivos, formularios de retroalimentación, actividades de “elige tu propia aventura”.
+    </p>
+  </li>
+  <li>
+    Cierre
+    <p>Evaluaciones formativas, encuestas de comprensión, formularios de resumen.
+    </p>
+  </li>
+
+</section>
+
+<section>
+<h2>Instrucciones de Aplicación en el Aula</h2>
+<ol>
+          <li>Contar con un dispositivo con acceso a internet.</li>
+          <li>Iniciar sesión.</li>
+          <li>Creación del formulario</li>
+          <li>Guarda y publica</li>
+</section>
+
+<section>
+<h2> Referencias Bibliográficas</h2>
+<ul>
+
+  <li><strong>Quincho Apumayta, R., Cárdenas Valverde, J. C., Quispe Ayala, C., Flores Poma, I. G., & Inga Choque, V.</strong><br>
+    (2022). <em>Formularios de Google y elaboración de instrumentos de evaluación por competencias</em>. Revista Conrado, 18(85), 424–432. 
+    <a href="https://support.google.com/docs/topic/6063584" target="_blank">https://support.google.com/docs/topic/6063584</a>
+    </li>
+    
+    
+</ul>
+
+</section>
+
+<section>
+  <h2>Geogebra</h2>
+  <table>
+    <tr>
+      <th>Nombre del recurso</th>
+      <td>Geogebra</td>
+    </tr>
+    <tr>
+      <th>Código QR y logo</th>
+      <td><em><img src="https://edtechfinder.com/storage/2024/February/G0QTulNLrsyje4oFInFB2sa4ryXKrUhGKCcyw6GL.png" alt="Geogebra"><img src="./assets/qrcode_www.geogebra.org.png" alt="qr"></em></td>
+    </tr>
+    <tr>
+      <th>Descripción detallada</th>
+      <td>Geogebra es una plataforma de matemáticas en línea que permite la creación de construcciones geométricas, gráficos y simulaciones interactivas. Es una herramienta valiosa para la enseñanza y el aprendizaje de las matemáticas, ya que facilita la visualización de conceptos abstractos y promueve la exploración activa.
+      </td>
+    </tr>
+    <tr>
+      <th>Actividades sugeridas</th>
+      <td>
+        <ul>
+          <li>Ordena los peces</li>
+          <li>Clasificación de Figuras</li>
+          <li>Cuentos interactivos</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Ventajas</th>
+      <td>
+        <ul>
+          <li>Interfaz intuitiva</li>
+          <li>Visualización dinámica</li>
+          <li>Interactividad</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Limitaciones</th>
+      <td>
+        <ul>
+          <li>Requiere conocimientos previos</li>
+          <li>Dependencia tecnológica</li>
+          <li>No sustituye el aprendizaje físico</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Link del recurso</th>
+     <td>
+      <a class="button" href="https://www.geogebra.org/?lang=es" target="_blank">
+        Haz clic aquí para ir a Geogebra
+      </a>
+    </td>
+    </tr>
+    <tr>
+      <th>Link del video tutorial</th>
+      <td><a class="button" href="https://www.youtube.com/watch?v=pFuJzS1htSI" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+    </tr>
+    <tr>
+      <th>Instrucciones de aplicación</th>
+      <td>
+        <ol>
+          <li>Abre geogebra</li>
+          <li>Diseña de la actividad</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section>
+    <h2>Momento de Aplicación en la Clase</h2>
+      <li>Inicio
+          <p>Despertar el interés y activar conocimientos previos.</p>
+      </li>
+      <li>
+        Desarrollo
+        <p>Manipular objetos y reforzar conceptos.
+        </p>
+      </li>
+      <li>
+        Cierre
+        <p> Consolidar lo aprendido y fomentar la expresión.
+        </p>
+      </li>
+
+</section>
+
+<section>
+<h2>Instrucciones de Aplicación en el Aula</h2>
+<ol>
+          <li>Instala o abre GeoGebra.</li>
+          <li>Explorar el espacio de trabajo.</li>
+          <li>Crear Figuras.</li>
+          <li>Guarda tu trabajo.</li>
+</section>
+
+<section>
+<h2> Referencias Bibliográficas</h2>
+<ul>
+    <li><strong>GeoGebra Team</strong><br>
+      (2023). <em>GeoGebra Manual: Página Principal</em>. GeoGebra Documentation. 
+      <a href="https://geogebra.github.io/docs/manual/es/Página_Principal/" target="_blank">https://geogebra.github.io/docs/manual/es/Página_Principal/</a>
+    </li>
+
+</ul>
+
+</section>
+
+<section>
+  <h2>Pikochart</h2>
+  <table>
+    <tr>
+      <th>Nombre del recurso</th>
+      <td>Pikochart</td>
+    </tr>
+    <tr>
+      <th>Código QR y logo</th>
+      <td><em><img src="https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/771473-piktochart-logo-png-842x536.png" alt="Pikochart"><img src="./assets/qrcode_piktochart.com.png" alt="qr"></em></td>
+    </tr>
+    <tr>
+      <th>Descripción detallada</th>
+      <td>Pikochart es una herramienta de visualización de datos que permite a los usuarios crear infografías, gráficos y presentaciones de manera sencilla y atractiva. Es especialmente útil para la enseñanza y el aprendizaje, ya que facilita la comprensión de información compleja a través de representaciones visuales.
+      </td>
+    </tr>
+    <tr>
+      <th>Actividades sugeridas</th>
+      <td>
+        <ul>
+          <li>Clasificación de formas</li>
+          <li>Secuencias lógicas</li>
+          <li>Cuentos Aprende Colores</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Ventajas</th>
+      <td>
+        <ul>
+          <li>Visualización atractiva</li>
+          <li>Estimulación de aprendizaje activo</li>
+          <li>interfaz intuitiva</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Limitaciones</th>
+      <td>
+        <ul>
+          <li>Versión gratuita restringida</li>
+          <li>Dependencia de internet</li>
+          <li>Colaboración limitada</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Link del recurso</th>
+     <td>
+      <a class="button" href="https://piktochart.com/generative-ai/editor/" target="_blank">
+        Haz clic aquí para ir a Piktochart
+      </a>
+    </td>
+    </tr>
+    <tr>
+      <th>Link del video tutorial</th>
+      <td><a class="button" href="https://www.youtube.com/watch?v=_QrV5737xJ4" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+    </tr>
+    <tr>
+      <th>Instrucciones de aplicación</th>
+      <td>
+        <ol>
+          <li>Ve a Pikochart</li>
+          <li>Elige una plantilla</li>
+          <li>Edita el contenido</li>
+          <li>Inserta elementos visuales</li>
+          <li>Guarda y comparte</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section>
+    <h2>Momento de Aplicación en la Clase</h2>
+      <li>Inicio
+          <p>Ayuda a anticipar actividades y reducir ansiedad.</p>
+      </li>
+      <li>
+        Desarrollo
+        <p>Refuerza el aprendizaje visual y la comprensión.
+        </p>
+      </li>
+      <li>
+        Cierre
+        <p> Facilita la retención y el repaso.
+        </p>
+      </li>
+
+</section>
+
+<section>
+<h2>Instrucciones de Aplicación en el Aula</h2>
+<ol>
+          <li>Ingresa a Pikochart.</li>
+          <li>Diseña tu infografía.</li>
+          <li>Elige una plantilla llamativa (colores vivos, íconos grandes).</li>
+          <li>Guarda tu trabajo y aplícalo.</li>
+</section>
+
+<section>
+<h2> Referencias Bibliográficas</h2>
+<ul>
+    <li><strong>Pikochart</strong><br>
+      (2025). <em>- Visual storytelling for everyone. Piktochart</em>. Pikochart Documentation. 
+      <a href="https://piktochart.com/" target="_blank">https://piktochart.com/</a>
+    </li>
+
+</ul>
+
+</section>
+
+<section>
+  <h2>Online Voice Recorder</h2>
+  <table>
+    <tr>
+      <th>Nombre del recurso</th>
+      <td>Online Voice Recorder</td>
+    </tr>
+    <tr>
+      <th>Código QR y logo</th>
+      <td><em><img src="https://vs-static.virtualspeech.com/img/icons/mic-stand-icon.png" alt="Online Voice Recorder"><img src="./assets/qrcode_online-voice-recorder.com.png" alt="qr"></em></td>
+    </tr>
+    <tr>
+      <th>Descripción detallada</th>
+      <td>Online Voice Recorder es una herramienta digital gratuita que permite grabar audio directamente desde el navegador web. Es ideal para grabaciones sencillas, rápidas y accesibles, ya que no requiere instalación ni registro. Esta plataforma es especialmente útil en contextos educativos para fomentar la expresión oral de los estudiantes de forma lúdica y participativa. Su diseño simple y su facilidad de uso lo convierten en un recurso ideal para niños en etapa preescolar.
+      </td>
+    </tr>
+    <tr>
+      <th>Actividades sugeridas</th>
+      <td>
+        <ul>
+          <li>Cuentos grabados por los niños</li>
+          <li>Canciones en grupo o individuales</li>
+          <li>Pronunciación de palabras y frases</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Ventajas</th>
+      <td>
+        <ul>
+          <li>Muy fácil de usar</li>
+          <li>No requiere instalación ni cuenta</li>
+          <li>Fomenta la expresión oral</li>
+          <li>Gratuito y accesible</li>
+          <li>Descarga inmediata de archivos de audio</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Limitaciones</th>
+      <td>
+        <ul>
+          <li>Requiere conexión a internet</li>
+          <li>No permite edición avanzada</li>
+          <li>Dependencia del micrófono del dispositivo</li>
+          <li>Interfaz poco visual para niños pequeños</li>
+          <li>No guarda grabaciones automáticamente</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Link del recurso</th>
+     <td>
+      <a class="button" href="https://online-voice-recorder.com/" target="_blank">
+        Haz clic aquí para ir a Online Voice Recorder
+      </a>
+    </td>
+    </tr>
+    <tr>
+      <th>Link del video tutorial</th>
+      <td><a class="button" href="https://www.youtube.com/watch?v=-SJ8nbuVbi8" target="_blank">Haz clic aquí para ver el video tutorial</a></td>
+    </tr>
+    <tr>
+      <th>Instrucciones de aplicación</th>
+      <td>
+        <ol>
+          <li>Ve a Pikochart</li>
+          <li>Elige una plantilla</li>
+          <li>Edita el contenido</li>
+          <li>Inserta elementos visuales</li>
+          <li>Guarda y comparte</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section>
+    <h2>Momento de Aplicación en la Clase</h2>
+      <li>
+        Cierre
+        <p> Online Voice Recorder se recomienda para el cierre de la clase, ya que permite reforzar los aprendizajes del día mediante una actividad creativa, lúdica y participativa. Grabar una canción, un resumen verbal o un cuento breve ayuda a los niños a expresar lo que han aprendido con sus propias palabras, fortaleciendo su lenguaje oral, memoria y autoestima. Además, escuchar su propia voz los motiva y les genera entusiasmo por participar.
+        </p>
+      </li>
+
+</section>
+
+<section>
+<h2>Instrucciones de Aplicación en el Aula</h2>
+<ol>
+          <li>Ingresa a Online voice Recorder.</li>
+          <li>Explicacion sencilla a los niños.</li>
+          <li>Explica y graba con ellos.</li>
+          <li>Reproduce.</li>
+</section>
+
+<section>
+  <h2>Referencias Bibliográficas</h2>
+  <ul>
+    <li><strong>Piktochart</strong><br>
+      (2025). <em>Visual storytelling for everyone. Piktochart</em>. Piktochart Documentation.  
+      <a href="https://piktochart.com/" target="_blank">https://piktochart.com/</a>
+    </li>
+    <li><strong>FlexClip</strong><br>
+      (2025). <em>Free Voice Recorder – Record Voice from Microphone Online</em>. FlexClip Tools.  
+      <a href="https://www.flexclip.com/tools/voice-recorder" target="_blank">https://www.flexclip.com/tools/voice-recorder</a>
+    </li>
+    <li><strong>VEED</strong><br>
+      (2025). <em>Online Voice Recorder: record voice memos and download as MP3</em>. VEED.io.  
+      <a href="https://www.veed.io/tools/voice-recorder" target="_blank">https://www.veed.io/tools/voice-recorder</a>
+    </li>
+    <li><strong>APIVoid</strong><br>
+      (2025). <em>Online Voice Recorder – Record Audio in Browser</em>. APIVoid Tools.  
+      <a href="https://www.apivoid.com/tools/voice-recorder/" target="_blank">https://www.apivoid.com/tools/voice-recorder/</a>
+    </li>
+  </ul>
+</section>
+
+
+    <footer>
+      <p>© Luisa Marleny Fuentes Velázquez 2025. Todos los derechos reservados.</p>
+    </footer>
+    <img src="https://i.pinimg.com/originals/d6/95/31/d695313d53d7ae5a87ab0e6ad575318e.png" alt="decoración" class="decorative-img" />
+
+</body>
+</html>
